@@ -26,13 +26,15 @@ cargo run --release -- --config configs/smoke.toml
 
 ## Demo mode (recommended for presentation)
 
-Generate a complete demo pack (CSVs + plots + markdown summary) in one command:
+Pre-built figures for reviewers: [../artifacts/simulator-demo/](../artifacts/simulator-demo/).
+
+Generate a fresh demo pack (CSVs + plots + markdown summary) in one command:
 
 ```bash
 bash scripts/demo_run.sh
 ```
 
-This creates `results/demo_pack_<timestamp>/` with:
+This creates `results/demo_pack_<timestamp>/` (gitignored) with:
 - `cache_sweep.csv`, `burst_sweep.csv`, `hetero_sweep.csv`, `unit_interval_sweep.csv`
 - `cache_mean.png`, `cache_hit.png`, `burst_mean.png`, `unit_interval_mean.png` (if pandas/matplotlib installed)
 - `DEMO_SUMMARY.md` with talking points
@@ -132,15 +134,6 @@ Append one CSV summary row per run:
 
 ```bash
 cargo run --release -- --config configs/default.toml --csv-out results/runs.csv
-```
-
-## Sweep all policies (bash)
-
-```bash
-for p in lru lfu closer p99aware; do
-  sed "s/^policy = .*/policy = \"$p\"/" configs/default.toml > /tmp/sim_$p.toml
-  cargo run --release --quiet -- --config /tmp/sim_$p.toml
-done
 ```
 
 ## What is simulated

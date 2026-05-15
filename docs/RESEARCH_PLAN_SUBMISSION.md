@@ -2,7 +2,7 @@
 
 **Course logistics (mirror anywhere the template asks):** Research Plan due **May 15, 2026** (5% of final grade). Presentation file upload **April 29, 2026, 8:30 AM**. End-term **May 15, 2026, 10:30 AM**. This project is **not** overlapping CS 297/298 work. If working in a pair, **each member uploads the same** presentation and final PPT where required.
 
-Copy sections below into the instructor’s Word/Google template using [CANVAS_TEMPLATE_MAPPING.md](CANVAS_TEMPLATE_MAPPING.md). Full citations: [REFERENCES.md](REFERENCES.md). Frozen scope: [SCOPE_LOCK.md](SCOPE_LOCK.md).
+Full citations: [REFERENCES.md](REFERENCES.md). Frozen scope: [SCOPE_LOCK.md](SCOPE_LOCK.md). Simulator evidence: [../artifacts/simulator-demo/](../artifacts/simulator-demo/).
 
 ---
 

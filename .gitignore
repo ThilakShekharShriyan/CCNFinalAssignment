@@ -1,7 +1,7 @@
 # Rust build artifacts
 **/target/
 
-# Simulator / experiment outputs (regenerate with scripts/demo_run.sh)
+# Scratch experiment outputs (regenerate; see artifacts/)
 edge-cache-sim/results/
 edge-cache-sim/results_real/
 
@@ -9,3 +9,4 @@ edge-cache-sim/results_real/
 .DS_Store
 .idea/
 .vscode/
+*.swp

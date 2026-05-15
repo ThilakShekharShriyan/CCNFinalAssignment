@@ -1,26 +1,41 @@
-# CCN final — research plan + simulator
+# p99-Aware Collaborative Edge Chunk Caching (CCN Final)
 
-## Simulator (Rust)
+**Course:** CS 258 — Computer Communication Networks  
+**Repository:** https://github.com/ThilakShekharShriyan/CCNFinalAssignment
 
-| Path | Purpose |
-|------|---------|
-| [edge-cache-sim/](edge-cache-sim/) | `cargo run` discrete-event style edge caching study |
-| [edge-cache-sim/configs/default.toml](edge-cache-sim/configs/default.toml) | Baseline parameters |
-| [edge-cache-sim/README.md](edge-cache-sim/README.md) | Run / policy sweep / Phase-3 cache & het sweeps / optional plots |
+Discrete-event simulation of collaborative edge chunk caching with tail-aware (**P99Aware**) replacement, plus an optional localhost deployment prototype.
+
+## Repository layout
+
+| Path | Contents |
+|------|----------|
+| [docs/RESEARCH_PLAN_SUBMISSION.md](docs/RESEARCH_PLAN_SUBMISSION.md) | Research plan (submission draft) |
+| [docs/SCOPE_LOCK.md](docs/SCOPE_LOCK.md) | Frozen baselines, metrics, experiment variables |
+| [docs/REFERENCES.md](docs/REFERENCES.md) | Bibliography |
+| [docs/PRESENTATION_OUTLINE.md](docs/PRESENTATION_OUTLINE.md) | Presentation structure |
+| [edge-cache-sim/](edge-cache-sim/) | Rust simulator and deployment toolkit |
+| [artifacts/](artifacts/) | Curated CSVs, plots, and summaries for review |
+
+## Quick start (simulator)
 
 ```bash
-cd edge-cache-sim && cargo run --release -- --config configs/default.toml
+cd edge-cache-sim
+cargo test
+cargo run --release -- --config configs/default.toml
 ```
 
-## Research plan docs
+One-command demo pack (CSVs + plots + summary):
 
-| File | Purpose |
-|------|---------|
-| [docs/RESEARCH_PLAN_SUBMISSION.md](docs/RESEARCH_PLAN_SUBMISSION.md) | Paste-ready research plan body |
-| [docs/CANVAS_TEMPLATE_MAPPING.md](docs/CANVAS_TEMPLATE_MAPPING.md) | Map Canvas template headings to sections |
-| [docs/SCOPE_LOCK.md](docs/SCOPE_LOCK.md) | Frozen baselines, metrics, experiment variables |
-| [docs/REFERENCES.md](docs/REFERENCES.md) | Verified bibliography + PDF links |
-| [docs/RUBRIC_CROSSWALK.md](docs/RUBRIC_CROSSWALK.md) | Self-check vs typical rubric criteria |
-| [docs/PRESENTATION_OUTLINE.md](docs/PRESENTATION_OUTLINE.md) | Apr 29 deck structure |
+```bash
+bash scripts/demo_run.sh
+```
 
-Do not edit the Cursor plan file at `~/.cursor/plans/` unless you intend to; graded artefacts live here and on Canvas.
+Pre-generated demo outputs: [artifacts/simulator-demo/](artifacts/simulator-demo/).
+
+## Reproducibility
+
+- Configurations: `edge-cache-sim/configs/`
+- Experiment contract: [docs/SCOPE_LOCK.md](docs/SCOPE_LOCK.md)
+- Optional real stack: [edge-cache-sim/deployment/README.md](edge-cache-sim/deployment/README.md)
+
+Build artifacts (`target/`) and scratch run directories (`results/`, `results_real/`) are gitignored; regenerate with the commands above.
