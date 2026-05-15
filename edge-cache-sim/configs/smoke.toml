@@ -1,0 +1,38 @@
+# Fast CI / local smoke test (seconds).
+seed = 7
+num_requests = 3_000
+warmup_requests = 500
+
+num_edge_nodes = 4
+local_latency_ms = 2.0
+local_bw_mbps = 500.0
+origin_latency_ms = 35.0
+origin_bw_mbps = 12.0
+
+heterogeneous_backhaul = false
+slow_origin_latency_mult = 2.2
+slow_origin_bw_mult = 0.55
+
+catalog_objects = 120
+chunks_per_object = 3
+chunk_size_kib = 256
+chunk_non_head_prob = 0.2
+
+zipf_skew = 1.15
+num_users = 40
+
+burst_high_rate_mult = 2.0
+burst_low_rate_mult = 0.5
+burst_toggle_mean_requests = 200
+request_unit_interval = 40.0
+
+cache_capacity_chunks = 25
+
+policy = "lru"
+
+p99_window_requests = 500
+p99_w_hit = 1.0
+p99_w_tail = 0.08
+p99_w_remote = 0.02
+
+prediction_noise_sigma = 0.0

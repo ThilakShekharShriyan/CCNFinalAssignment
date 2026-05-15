@@ -1,0 +1,11 @@
+# Rust build artifacts
+**/target/
+
+# Simulator / experiment outputs (regenerate with scripts/demo_run.sh)
+edge-cache-sim/results/
+edge-cache-sim/results_real/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/

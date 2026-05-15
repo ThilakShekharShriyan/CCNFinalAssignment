@@ -1,0 +1,48 @@
+[package]
+name = "edge-cache-sim"
+version = "0.1.0"
+edition = "2021"
+description = "Discrete-event style edge chunk caching simulator (p99-aware collaborative study)"
+default-run = "edge-cache-sim"
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+toml = "0.8"
+clap = { version = "4.5", features = ["derive"] }
+rand = { version = "0.8", features = ["small_rng"] }
+rand_distr = "0.4"
+anyhow = "1.0"
+tokio = { version = "1.40", features = ["macros", "rt-multi-thread", "signal", "time", "sync"] }
+axum = "0.7"
+reqwest = { version = "0.12", features = ["json", "rustls-tls"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["fmt", "env-filter"] }
+tonic = { version = "0.12", features = ["transport"] }
+prost = "0.13"
+prost-types = "0.13"
+futures = "0.3"
+
+[[bin]]
+name = "edge-cache-sim"
+path = "src/main.rs"
+
+[[bin]]
+name = "origin_server"
+path = "src/bin/origin_server.rs"
+
+[[bin]]
+name = "edge_server"
+path = "src/bin/edge_server.rs"
+
+[[bin]]
+name = "controller_service"
+path = "src/bin/controller_service.rs"
+
+[[bin]]
+name = "workload_replay"
+path = "src/bin/workload_replay.rs"
+
+[build-dependencies]
+tonic-build = "0.12"
+protoc-bin-vendored = "3"

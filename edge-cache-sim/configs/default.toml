@@ -1,0 +1,46 @@
+# Default experiment: moderate load, homogeneous backhaul, low burst.
+seed = 42
+num_requests = 50_000
+warmup_requests = 5_000
+
+num_edge_nodes = 4
+# Symmetric mesh among edges + each edge connects to origin (backhaul).
+local_latency_ms = 2.0
+local_bw_mbps = 500.0
+origin_latency_ms = 35.0
+origin_bw_mbps = 12.0
+
+# When true, nodes with index >= num_edge_nodes/2 use slower origin link.
+heterogeneous_backhaul = false
+slow_origin_latency_mult = 2.2
+slow_origin_bw_mult = 0.55
+
+catalog_objects = 500
+chunks_per_object = 1
+chunk_size_kib = 256
+# 0 = every request is for chunk 0 (startup). Raise with chunks_per_object > 1 for body-chunk pressure.
+chunk_non_head_prob = 0.0
+
+zipf_skew = 1.15
+num_users = 200
+
+# Burst: alternates high/low Poisson rate (same mean long-run).
+burst_high_rate_mult = 4.0
+burst_low_rate_mult = 0.25
+burst_toggle_mean_requests = 800
+# Base inter-arrival interval (larger = lighter offered load).
+request_unit_interval = 120.0
+
+cache_capacity_chunks = 60
+
+# Lru | Lfu | Closer | P99Aware
+policy = "lru"
+
+# P99-aware eviction weights (importance ≈ w_hit * hits - w_tail * tail_proxy - w_remote * origin_fetches)
+p99_window_requests = 2_000
+p99_w_hit = 1.0
+p99_w_tail = 0.08
+p99_w_remote = 0.02
+
+# Optional popularity noise (0 = off). Does not change true Zipf requests; biases eviction scores only for P99Aware experiments.
+prediction_noise_sigma = 0.0

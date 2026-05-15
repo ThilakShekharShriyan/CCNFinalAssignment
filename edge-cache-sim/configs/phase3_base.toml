@@ -1,0 +1,40 @@
+# Base for Phase-3 sweeps: combine with CLI, e.g.
+#   cargo run --release -- --config configs/phase3_base.toml --sweep-policies --sweep-cache-sizes 36,54,72,90 --csv-out results/p3.csv
+seed = 42
+num_requests = 35_000
+warmup_requests = 3_500
+
+num_edge_nodes = 4
+local_latency_ms = 2.0
+local_bw_mbps = 500.0
+origin_latency_ms = 35.0
+origin_bw_mbps = 12.0
+
+heterogeneous_backhaul = false
+slow_origin_latency_mult = 2.2
+slow_origin_bw_mult = 0.55
+
+catalog_objects = 400
+chunks_per_object = 4
+chunk_size_kib = 256
+chunk_non_head_prob = 0.18
+
+zipf_skew = 1.15
+num_users = 200
+
+burst_high_rate_mult = 4.0
+burst_low_rate_mult = 0.25
+burst_toggle_mean_requests = 800
+request_unit_interval = 120.0
+
+# Overridden by --sweep-cache-sizes
+cache_capacity_chunks = 72
+
+policy = "lru"
+
+p99_window_requests = 2_000
+p99_w_hit = 1.0
+p99_w_tail = 0.08
+p99_w_remote = 0.02
+
+prediction_noise_sigma = 0.0

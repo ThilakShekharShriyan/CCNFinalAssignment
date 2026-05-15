@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package edgecache;
+
+service ChunkService {
+  rpc GetChunk(ChunkRequest) returns (ChunkReply);
+}
+
+message ChunkRequest {
+  uint32 object = 1;
+  uint32 chunk = 2;
+}
+
+message ChunkReply {
+  bytes data = 1;
+  bool found = 2;
+  string source = 3;
+}
